@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>for my edward</title>
+  <style>
+    :root{--bg:#e9f5ff;--card:#ffffff;--accent:#2b7cff}
+    html,body{height:100%;margin:0;font-family:system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--bg),#fff);padding:20px}
+    .card{width:100%;max-width:720px;background:var(--card);box-shadow:0 10px 30px rgba(0,0,0,.08);border-radius:16px;overflow:hidden}
+    header{padding:28px 32px;border-bottom:1px solid #f0f4fb;display:flex;align-items:center;gap:16px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7fb7ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px}
+    header h1{margin:0;font-size:18px}
+    .body{padding:32px}
+    .notice{padding:18px;border-radius:10px;background:#f6fbff;border:1px dashed #dceeff;margin-bottom:18px}
+    .input-row{display:flex;gap:8px;align-items:center}
+    input[type="password"]{flex:1;padding:12px 14px;border-radius:10px;border:1px solid #dde9ff;font-size:15px}
+    button{padding:12px 16px;border-radius:10px;border:0;background:var(--accent);color:#fff;font-weight:600;cursor:pointer}
+    .content{display:none}
+    .greeting{font-size:16px;margin-bottom:12px}
+    .made{padding:18px;border-top:1px solid #f0f4fb;background:#fbfdff;text-align:center;color:#6b7280}
+    footer{padding:14px;text-align:center;color:#94a3b8;font-size:13px}
+    .small{font-size:13px;color:#7b8799}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <header>
+      <div class="logo">ED</div>
+      <div>
+        <h1>for my edward</h1>
+        <div class="small">A little page made with love</div>
+      </div>
+    </header>
+
+    <section class="body">
+      <div class="notice">
+        <strong>Protected page</strong>
+        <div class="small">Please enter the password to open this page.</div>
+      </div>
+
+      <div class="input-row">
+        <input id="pwd" type="password" placeholder="Enter password (hint: tanggal jadian)" />
+        <button id="openBtn">Open</button>
+      </div>
+
+      <div id="wrong" class="small" style="color:#d23f44;margin-top:10px;display:none">Incorrect password — try again.</div>
+
+      <div id="content" class="content" aria-hidden="true" style="margin-top:20px">
+        <p class="greeting">Hai sayang, mungkin terlalu simple buat kamu tapi aku berusaha sebisaku buat kasih kamu hadiah untuk mensive kita.</p>
+        <p>Being with you feels like the sweetest part of my life. You've made my days brighter — I hope this little page makes you smile.</p>
+        <div style="margin-top:18px"><strong>Song:</strong> Blue — Yung Kai</div>
+      </div>
+    </section>
+
+    <div class="made">
+      made with &hearts; by ren
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      const CORRECT = "3108";
+      const btn = document.getElementById('openBtn');
+      const pwd = document.getElementById('pwd');
+      const content = document.getElementById('content');
+      const wrong = document.getElementById('wrong');
+
+      function show() {
+        wrong.style.display = 'none';
+        content.style.display = 'block';
+        content.setAttribute('aria-hidden','false');
+        pwd.value = '';
+      }
+
+      btn.addEventListener('click', function(){
+        if (pwd.value.trim() === CORRECT) {
+          show();
+        } else {
+          wrong.style.display = 'block';
+        }
+      });
+
+      pwd.addEventListener('keydown', function(e){
+        if (e.key === 'Enter') btn.click();
+      });
+    })();
+  </script>
+</body>
+</html>
