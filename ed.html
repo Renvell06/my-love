@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>for my edward</title>
+  <style>
+    :root{
+      --blue-1:#e6f0ff;
+      --blue-2:#cfe3ff;
+      --blue-3:#8fb7ff;
+      --navy:#2b5bb3;
+      --white:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg,var(--blue-1) 0%, var(--blue-2) 40%, var(--blue-3) 100%);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--navy);
+    }
+
+    .card{
+      width:min(880px,94%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.70));
+      border-radius:18px;
+      padding:28px;
+      box-shadow: 0 8px 30px rgba(43,91,179,0.18);
+      position:relative;
+      overflow:hidden;
+    }
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .logo{
+      width:72px;height:72px;border-radius:14px;
+      background:linear-gradient(135deg,var(--navy),var(--blue-3));
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;
+      box-shadow: 0 6px 18px rgba(43,91,179,0.2);
+    }
+    h1{margin:0;font-size:28px;line-height:1}
+    p.lead{margin:6px 0 0 0;color:rgba(43,91,179,0.85)}
+
+    .content{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:22px;
+      margin-top:22px;
+      align-items:start;
+    }
+
+    .left{
+      padding:18px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
+      min-height:320px;
+    }
+
+    .right{
+      padding:18px;
+      border-radius:12px;
+      background: rgba(43,91,179,0.06);
+      min-height:320px;
+      display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:center;
+    }
+
+    .heart{
+      font-size:84px;opacity:0.12;position:absolute;right:-30px;top:-10px;transform:rotate(-12deg);
+    }
+
+    /* Lock modal */
+    .lock-overlay{
+      position:fixed;inset:0;background:linear-gradient(180deg, rgba(11,55,120,0.55), rgba(11,55,120,0.45));
+      display:flex;align-items:center;justify-content:center;z-index:999;
+      backdrop-filter: blur(6px);
+    }
+    .lock-box{
+      width:min(420px,94%);
+      background:var(--white);
+      padding:22px;border-radius:14px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.25);
+    }
+    .lock-box h2{margin:0 0 8px 0;color:var(--navy)}
+    .hint{font-size:13px;color:rgba(43,91,179,0.8);margin-bottom:10px}
+    .pwd-input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(43,91,179,0.15);font-size:16px}
+    .btn{margin-top:12px;padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--navy),var(--blue-3));color:white;font-weight:600;cursor:pointer}
+    .msg{margin-top:10px;font-size:13px}
+
+    footer{margin-top:18px;font-size:13px;color:rgba(43,91,179,0.7);text-align:center}
+
+    /* small screens */
+    @media (max-width:800px){
+      .content{grid-template-columns:1fr}
+      .heart{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="card" aria-live="polite">
+    <div class="heart">❤</div>
+    <header>
+      <div class="logo">FE</div>
+      <div>
+        <h1>for my edward</h1>
+        <p class="lead">happy 1st mensive,love</p>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="left">
+        <h2>sayangku</h2>
+        <p>Hai sayang, mungkin terlalu simple buat kamu tapi aku berusaha sebisaku buat kasih kamu hadiah untuk mensive kita.</p>
+        <p>Sayangku, semoga hari-harimu selalu cerah.</p>
+
+        <hr style="margin:14px 0;border:none;border-top:1px dashed rgba(43,91,179,0.08)" />
+
+        <h3>for u</h3>
+        <p id="secretMessage">With you, I’ve discovered a kind of happiness I never thought I’d deserve. It’s not just about the laughter or the little moments we share, it’s the way your presence lingers in my thoughts even when we’re apart. You have this quiet magic, something unexplainable that makes my heart steady and restless at the same time.
+            Every time I see your smile, it feels like the world pauses just to let me admire how breathtaking you are. Every word from you stays with me, echoing softly in my mind, like a melody I never want to end. And every moment we’ve had so far feels like a page of a story I want to keep writing with you, endlessly, without ever reaching the last chapter.          
+            I know I’m not perfect, but with you, I’ve found a reason to try, to grow, to be better. You’ve become my favorite thought when the day feels heavy and my sweetest dream when the night is quiet. Loving you feels like holding on to something eternal, something too precious to ever let go.  
+            So, if someday the world tries to test us, I want you to remember this: you are my safe place, my brightest star, and the one I’d choose again and again, in every universe, in every lifetime.
+            "</p>
+
+      </div>
+
+      <aside class="right">
+        <div style="text-align:center">
+          <strong>Petunjuk</strong>
+          <div class="hint">Clue: tanggal jadian</div>
+        </div>
+
+        <div style="width:100%">
+          <label for="pwd" style="display:block;text-align:left;font-weight:600;margin-bottom:6px">Masukkan password</label>
+          <input id="pwd" class="pwd-input" type="password" placeholder="••••" aria-label="password" />
+          <button class="btn" id="unlockBtn">Buka template</button>
+          <div class="msg" id="msgArea"></div>
+        </div>
+
+        <div style="font-size:12px;color:rgba(43,91,179,0.65);text-align:center;margin-top:8px">Password adalah empat digit — pikirkan tanggal jadian.</div>
+      </aside>
+    </div>
+
+    <footer>Made with ❤️ — Ren</footer>
+  </div>
+
+  <!-- Lock overlay (appears on load) -->
+  <div class="lock-overlay" id="lockOverlay">
+    <div class="lock-box">
+      <h2>Kunci Template</h2>
+      <p class="hint">Masukkan kode untuk membuka. Clue: tanggal jadian</p>
+      <input id="overlayPwd" class="pwd-input" type="password" placeholder="Masukkan kode" />
+      <div style="display:flex;gap:8px;margin-top:12px;justify-content:center">
+        <button class="btn" id="overlayBtn">Buka</button>
+      </div>
+      <div class="msg" id="overlayMsg"></div>
+    </div>
+  </div>
+
+  <script>
+    // SIMPLE CLIENT-SIDE PROTECTION
+    (function(){
+      const CORRECT = '3108'; // kata sandi yang diminta
+      const overlay = document.getElementById('lockOverlay');
+      const overlayBtn = document.getElementById('overlayBtn');
+      const overlayPwd = document.getElementById('overlayPwd');
+      const overlayMsg = document.getElementById('overlayMsg');
+
+      const pwdInput = document.getElementById('pwd');
+      const unlockBtn = document.getElementById('unlockBtn');
+      const msgArea = document.getElementById('msgArea');
+      const secret = document.getElementById('secretMessage');
+
+      function unlockAttempt(value, targetMsg, doneCallback){
+        if(!value){
+          targetMsg.textContent = 'Silakan masukkan kode.';
+          return false;
+        }
+        if(value.trim() === CORRECT){
+          targetMsg.textContent = 'Berhasil! Membuka...';
+          // reveal secret content or any additional UI actions
+          document.querySelector('.left').style.filter = 'none';
+          overlay.style.display = 'none';
+          if(doneCallback) doneCallback();
+          return true;
+        } else {
+          targetMsg.textContent = 'Kode salah. Coba lagi.';
+          return false;
+        }
+      }
+
+      overlayBtn.addEventListener('click', function(){
+        unlockAttempt(overlayPwd.value, overlayMsg);
+      });
+
+      overlayPwd.addEventListener('keyup', function(e){ if(e.key === 'Enter') overlayBtn.click(); });
+
+      unlockBtn.addEventListener('click', function(){
+        const ok = unlockAttempt(pwdInput.value, msgArea);
+        if(ok){
+          // show a little confetti-like heart (css-only)
+          secret.innerHTML = 'Halo sayang ❤️\n<br>It’s kind of wild how you’ve become my favorite part of every day so fast. Like, suddenly the world feels less heavy, colors look brighter, and even the smallest moments carry meaning just because you’re in them. You’re not just someone I care about you’re literally the safest corner of my universe, the one place where my restless heart feels calm. When I think of you, it feels like my soul has finally found its missing note in a song I’ve been humming all my life. There’s this comfort I can’t explain, like the way rain sounds on a quiet night or how the stars keep glowing even when no one’s watching. That’s what you are to me constant, beautiful, and irreplaceable. Sometimes I wonder if you know how much power you hold over me—the way your smile rewrites the mood of my entire day, or how just one word from you can silence every storm in my mind. And it’s not just about butterflies anymore; it’s deeper, like roots growing quietly but strong, promising that I’ll always come back to you no matter how far I wander. And honestly, being with you sometimes feels exactly like that song "I could say I never dare to think about you in that way..." yet here I am, unable to stop, unable to look away, because loving you feels too natural to fight. It’s like the world itself is double-taking every time you’re near, reminding me again and again that you’re the one who makes my heart skip and my soul glow.   So here’s my truth: I don’t need grand gestures, or forever mapped out right now. All I need is you because you’ve already become the part of me I never want to lose.';
+        }
+      });
+
+      pwdInput.addEventListener('keyup', function(e){ if(e.key === 'Enter') unlockBtn.click(); });
+
+      // Accessibility: focus the overlay input on load
+      window.addEventListener('load', function(){ overlayPwd.focus(); });
+
+      // Set document title explicitly (in case the user opens the file)
+      document.title = 'for my edward';
+
+    })();
+  </script>
+</body>
+</html>
