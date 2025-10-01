@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #d6ecff;
+      overflow: hidden;
+    }
+
+    /* Password Screen */
+    #lockscreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #a1d4ff, #d6ecff);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    #lockscreen h2 {
+      color: #003366;
+      margin-bottom: 20px;
+    }
+    #lockscreen input {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 18px;
+    }
+    #lockscreen button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #003366;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Animasi masuk */
+    .fade-out { animation: fadeOut 1s forwards; }
+    @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+
+    /* Pages */
+    .page {
+      display: none;
+      height: 100vh;
+      width: 100%;
+      padding: 40px;
+      box-sizing: border-box;
+      text-align: center;
+      overflow-y: auto;
+    }
+    .page.active {
+      display: block;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    h1, h2, p {
+      color: #003366;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+    .nav button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50%;
+      background: #ffccff;
+      color: #003366;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    iframe {
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Page 1 - Typing Animation */
+    .typewriter {
+      display: inline-block;
+      border-right: 3px solid #003366;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 10s steps(80, end), blink 0.8s infinite;
+      font-size: 18px;
+      color: #003366;
+      text-align: left;
+      max-width: 700px;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      from { border-color: transparent }
+      to { border-color: #003366; }
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      bottom: 0;
+      color: red;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-600px) scale(1.5); opacity: 0; }
+    }
+
+    /* Page 3 - Cat */
+    .cat-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .cat {
+      font-size: 80px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .love {
+      color: red;
+      font-size: 40px;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Password -->
+  <div id="lockscreen">
+    <h2>Enter the Code (Clue: Tanggal Jadian)</h2>
+    <input type="password" id="password" placeholder="Enter code...">
+    <button onclick="unlock()">Unlock</button>
+  </div>
+
+  <!-- Page 1 -->
+  <div class="page active" id="page1">
+    <h1>Hai Sayangku, edward💙</h1>
+ Lowkey, I still can’t believe I got to know you and actually vibe with you this past month. Every single day with you hits different whether it’s just talking about random stuff, laughing at the silliest things, or simply being around you. It feels so comforting, like you’re my safe place already. Honestly, I don’t even wanna imagine my days without you anymore, ‘cause you’ve become the highlight of everything I do. This one month may sound short, but with you, it feels like I’ve already lived a whole story worth keeping forever. And the best part? I know this is just the beginning, and I can’t wait to see how far we’ll go together.
+
+    <p id="daysCount" style="margin-top:20px; font-weight:bold; font-size:18px;"></p>
+  </div>
+
+  <!-- Page 2 (Lagu YouTube) -->
+  <div class="page" id="page2">
+    <h2>Song for u🎶</h2>
+    <iframe width="80%" height="400" src="https://www.youtube.com/embed/y-cZ17mlEQY?si=XjEqQrhP7lTirjOM" title="YouTube video"></iframe>
+  </div>
+
+  <!-- Page 3 (Kucing) -->
+  <div class="page" id="page3">
+    <div class="cat-container">
+      <div class="cat">🐱</div>
+      <div class="love">❤️</div>
+      <p>my love belongs only to you💕</p>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <button onclick="showPage(1)">🐱</button>
+    <button onclick="showPage(2)">🐱</button>
+    <button onclick="showPage(3)">🐱</button>
+  </div>
+
+  <script>
+    // Hitung hari dari 31 Agustus sampai sekarang
+    function countDays() {
+      const start = new Date(2025, 7, 31); // Bulan 7 = Agustus
+      const now = new Date();
+      const diffTime = now - start;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      document.getElementById("daysCount").innerText = `💖 it's has been  ${diffDays} days since 31 august 31, 2025 💖`;
+    }
+
+    function unlock() {
+      const pass = document.getElementById("password").value;
+      if(pass === "3108") {
+        document.getElementById("lockscreen").classList.add("fade-out");
+        setTimeout(()=> {
+          document.getElementById("lockscreen").style.display="none";
+        }, 1000);
+        generateHearts();
+        countDays();
+      } else {
+        alert("Code salah, coba lagi!");
+      }
+    }
+
+    function showPage(n) {
+      const pages = document.querySelectorAll(".page");
+      pages.forEach(p => p.classList.remove("active"));
+      document.getElementById("page"+n).classList.add("active");
+    }
+
+    // Floating hearts di page 1
+    function generateHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }, 800);
+    }
+  </script>
+</body>
+</html>
